@@ -6,11 +6,8 @@ const { noteRouter } = require('./routes/note.routes')
 require("dotenv").config()
 const port = process.env.PORT
 const app = express()
-const corsOptions = {
-    origin: 'http://localhost:3000', // Allow requests from this origin
-    optionsSuccessStatus: 200 // Some legacy browsers choke on 204
-  };
-app.use(cors(corsOptions))
+
+app.use(cors())
 app.use(express.json()) // Middle
 app.use("/user",userRouter)
 app.use("/note",noteRouter)
