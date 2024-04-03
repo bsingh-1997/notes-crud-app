@@ -60,7 +60,7 @@ export const deleteNotes = (id) => async (dispatch) => {
     dispatch({ type: DELETE_NOTES_LOADING });
     console.log(id)
     try {
-        const res = await axios.delete("http://localhost:4000/note/",{
+        const res = await axios.delete(BASE_URL+"/note/",{
             headers: { Authorization: token ,id:id}
             
         });

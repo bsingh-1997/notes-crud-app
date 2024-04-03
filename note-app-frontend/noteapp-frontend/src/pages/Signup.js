@@ -18,6 +18,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import userReducer from '../redux/users/user.reducer'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { BASE_URL } from '../components/constatnts/config'
   
 export default function Signup() {
   const nav = useNavigate()
@@ -27,7 +28,7 @@ export default function Signup() {
     const  [password, setPassword] = useState("")
     const dispatch = useDispatch()
     const handleSignup = async()=>{
-      let data = await axios.post("http://localhost:4000/user/register",{
+      let data = await axios.post(BASE_URL+"/user/register",{
         name, email, password
       })
       let {message,status}= data.data
